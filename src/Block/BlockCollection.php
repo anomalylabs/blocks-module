@@ -17,6 +17,47 @@ class BlockCollection extends EntryCollection
     use DispatchesJobs;
 
     /**
+     * Return if the collection has a
+     * block type or default to key.
+     *
+     * @param mixed $key
+     * @return bool
+     */
+    public function has($key)
+    {
+        $item = $this->first(
+            function ($block) use ($key) {
+
+                /* @var BlockInterface $block */
+                return str_is($key, $block->getExtensionSlug()) || str_is($key, $block->getExtensionNamespace());
+            }
+        );
+
+        if ($item) {
+            return true;
+        }
+
+        return parent::has($key);
+    }
+
+    /**
+     * Return only blocks of a certain type.
+     *
+     * @param mixed $key
+     * @return $this
+     */
+    public function type($key)
+    {
+        return $this->filter(
+            function ($block) use ($key) {
+
+                /* @var BlockInterface $block */
+                return str_is($key, $block->getExtensionSlug()) || str_is($key, $block->getExtensionNamespace());
+            }
+        );
+    }
+
+    /**
      * Render the blocks.
      *
      * @return string

@@ -8,7 +8,6 @@ use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Model\Blocks\BlocksBlocksEntryModel;
-use Anomaly\Streams\Platform\Model\EloquentModel;
 
 /**
  * Class BlockModel
@@ -95,6 +94,30 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
     public function getExtension()
     {
         return $this->extension;
+    }
+
+    /**
+     * Get the extension slug.
+     *
+     * @return string
+     */
+    public function getExtensionSlug()
+    {
+        return $this
+            ->getExtension()
+            ->getSlug();
+    }
+
+    /**
+     * Get the extension namespace.
+     *
+     * @return string
+     */
+    public function getExtensionNamespace()
+    {
+        return $this
+            ->getExtension()
+            ->getNamespace();
     }
 
     /**

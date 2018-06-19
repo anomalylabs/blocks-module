@@ -29,6 +29,20 @@ interface BlockInterface extends EntryInterface
     public function getExtension();
 
     /**
+     * Get the extension slug.
+     *
+     * @return string
+     */
+    public function getExtensionSlug();
+
+    /**
+     * Get the extension namespace.
+     *
+     * @return string
+     */
+    public function getExtensionNamespace();
+
+    /**
      * Return the loaded extension.
      *
      * @return BlockExtension
