@@ -51,11 +51,17 @@ class MakeBlock
             ]
         );
 
+        if (!$extension->getView()) {
+            return;
+        }
+
         $this->block->setContent(
-            $view->make(
-                $extension->getView(),
-                ['block' => $this->block]
-            )->render()
+            $view
+                ->make(
+                    $extension->getView(),
+                    ['block' => $this->block]
+                )
+                ->render()
         );
     }
 }

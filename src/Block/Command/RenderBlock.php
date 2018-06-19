@@ -45,6 +45,10 @@ class RenderBlock
         /* @var BlockExtension $extension */
         $extension = $this->block->extension();
 
+        if (!$extension->getView()) {
+            return null;
+        }
+
         return $view->make(
             $extension->getWrapper(),
             [
