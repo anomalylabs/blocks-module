@@ -20,6 +20,11 @@
                 {{ icon('cog') }}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
+                {% if form.options.block_id %}
+                    <a href="#" class="dropdown-item" onclick="alert('#block--{{ form.options.block_id }}');return false;">
+                        {{ icon('fa fa-hashtag') }} <span>{{ trans('anomaly.field_type.blocks::input.copy_id') }}</span>
+                    </a>
+                {% endif %}
                 <a href="#" class="dropdown-item" data-toggle="collapse"
                    data-expand="{{ trans('anomaly.field_type.blocks::input.expand') }}"
                    data-collapse="{{ trans('anomaly.field_type.blocks::input.collapse') }}">
