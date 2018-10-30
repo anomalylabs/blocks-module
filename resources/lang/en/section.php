@@ -1,10 +1,19 @@
 <?php
 
 return [
-    'areas'  => [
+    'areas'       => [
         'title' => 'Areas',
     ],
-    'blocks' => [
+    'types'       => [
+        'title' => 'Types',
+    ],
+    'blocks'      => [
         'title' => 'Blocks',
+    ],
+    'fields'      => [
+        'title' => 'Fields',
+    ],
+    'assignments' => [
+        'title' => 'Assignments',
     ],
 ];

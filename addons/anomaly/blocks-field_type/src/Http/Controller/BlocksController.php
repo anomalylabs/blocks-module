@@ -41,6 +41,7 @@ class BlocksController extends PublicController
                 },
                 $extensions->search('anomaly.module.blocks::block.*')
                     ->enabled()
+                    ->sort()
                     ->all()
             );
         }

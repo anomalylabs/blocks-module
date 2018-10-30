@@ -15,7 +15,7 @@
         <ul class="nav nav-pills nav-stacked">
             {% for area in areas %}
                 <li class="nav-item">
-                    <a href="{{ url_to('admin/blocks/' ~ area.slug) }}" class="nav-link">
+                    <a href="{{ url_to('admin/blocks/areas/' ~ area.slug) }}" class="nav-link">
                         <strong>{{ area.title }}</strong>
                         <br>
                         <small>{{ area.description }}</small>

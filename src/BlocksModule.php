@@ -45,14 +45,40 @@ class BlocksModule extends Module
             'slug'        => 'blocks',
             'data-toggle' => 'modal',
             'data-target' => '#modal',
-            'data-href'   => 'admin/blocks/{request.route.parameters.area}',
+            'data-href'   => 'admin/blocks/areas/{request.route.parameters.area}',
             'href'        => 'admin/blocks/choose',
-
-            'buttons' => [
+            'buttons'     => [
                 'add_block' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/blocks/{request.route.parameters.area}/choose',
+                    'href'        => 'admin/blocks/areas/{request.route.parameters.area}/choose',
+                ],
+            ],
+        ],
+        'types'  => [
+            'buttons'  => [
+                'new_type',
+            ],
+            'sections' => [
+                'assignments' => [
+                    'hidden'  => true,
+                    'href'    => 'admin/blocks/types/assignments/{request.route.parameters.stream}',
+                    'buttons' => [
+                        'assign_fields' => [
+                            'data-toggle' => 'modal',
+                            'data-target' => '#modal',
+                            'href'        => 'admin/blocks/types/assignments/{request.route.parameters.stream}/choose',
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'fields' => [
+            'buttons' => [
+                'new_field' => [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/blocks/fields/choose',
                 ],
             ],
         ],

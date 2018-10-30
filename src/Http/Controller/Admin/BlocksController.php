@@ -112,6 +112,7 @@ class BlocksController extends AdminController
                 'extensions' => $extensions
                     ->search('anomaly.module.blocks::block.*')
                     ->enabled()
+                    ->sort()
                     ->all(),
             ]
         );

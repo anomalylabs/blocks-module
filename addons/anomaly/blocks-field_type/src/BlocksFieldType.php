@@ -226,8 +226,8 @@ class BlocksFieldType extends FieldType
             ->setOption('block_instance', $instance)
             ->setOption('block_field', $field->getId())
             ->setOption('block_prefix', $this->getFieldName())
+            ->setOption('block_title', $extension->getTitle())
             ->setOption('block_extension', $extension->getNamespace())
-            ->setOption('block_title', $extension->getNamespace('addon.title'))
             ->setOption('form_view', 'anomaly.field_type.blocks::form')
             ->setOption('wrapper_view', 'anomaly.field_type.blocks::wrapper');
 

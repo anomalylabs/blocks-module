@@ -15,7 +15,7 @@
         <ul class="nav nav-pills nav-stacked">
             {% for extension in extensions %}
                 <li class="nav-item">
-                    <a href="{{ url_to('admin/blocks/' ~ route_parameter('area') ~ '/create?extension=' ~ extension.namespace) }}" class="nav-link">
+                    <a href="{{ url_to('admin/blocks/areas/' ~ route_parameter('area') ~ '/create?extension=' ~ extension.namespace) }}" class="nav-link">
                         <strong>{{ trans(extension.title) }}</strong>
                         <br>
                         <small>{{ trans(extension.description) }}</small>

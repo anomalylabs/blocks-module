@@ -35,6 +35,13 @@ class BlockExtension extends Extension
     protected $model = null;
 
     /**
+     * The block category.
+     *
+     * @var null|string
+     */
+    protected $category = 'other';
+
+    /**
      * The block form builder.
      *
      * @var string
@@ -222,6 +229,29 @@ class BlockExtension extends Extension
     public function setWrapper($wrapper)
     {
         $this->wrapper = $wrapper;
+
+        return $this;
+    }
+
+    /**
+     * Get the category.
+     *
+     * @return null|string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set the category.
+     *
+     * @param $category
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
 
         return $this;
     }
