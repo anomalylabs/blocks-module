@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlocksModule\Block\Support\SelectFieldType;
 
+use Anomaly\BlocksModule\Block\BlockCategories;
 use Anomaly\SelectFieldType\SelectFieldType;
 
 /**
@@ -16,16 +17,11 @@ class CategoryOptions
      * Handle the category options.
      *
      * @param SelectFieldType $fieldType
+     * @param BlockCategories $categories
      */
-    public function handle(SelectFieldType $fieldType)
+    public function handle(SelectFieldType $fieldType, BlockCategories $categories)
     {
-        $fieldType->setOptions(
-            [
-                'content'    => 'Content',
-                'media'      => 'Media',
-                'structural' => 'Structural',
-                'other'      => 'Other',
-            ]
-        );
+        $fieldType->setOptions($categories->getCategories());
     }
+
 }

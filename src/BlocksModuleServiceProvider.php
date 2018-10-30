@@ -54,6 +54,7 @@ class BlocksModuleServiceProvider extends AddonServiceProvider
         'admin/blocks/types/edit/{id}'        => 'Anomaly\BlocksModule\Http\Controller\Admin\TypesController@edit',
         'admin/blocks/areas/{area}'           => 'Anomaly\BlocksModule\Http\Controller\Admin\BlocksController@index',
         'admin/blocks/areas/{area}/create'    => 'Anomaly\BlocksModule\Http\Controller\Admin\BlocksController@create',
+        'admin/blocks/areas/{area}/category'  => 'Anomaly\BlocksModule\Http\Controller\Admin\BlocksController@category',
         'admin/blocks/areas/{area}/choose'    => 'Anomaly\BlocksModule\Http\Controller\Admin\BlocksController@choose',
         'admin/blocks/areas/{area}/edit/{id}' => 'Anomaly\BlocksModule\Http\Controller\Admin\BlocksController@edit',
     ];
@@ -84,7 +85,9 @@ class BlocksModuleServiceProvider extends AddonServiceProvider
      */
     public function boot()
     {
-        $this->dispatch(new RegisterBlocks());
+        if (class_exists(BlocksTypesEntryModel::class)) {
+            $this->dispatch(new RegisterBlocks());
+        }
     }
 
     /**
@@ -127,7 +130,7 @@ class BlocksModuleServiceProvider extends AddonServiceProvider
     /**
      * Map additional routes.
      *
-     * @param FieldRouter $fields
+     * @param FieldRouter      $fields
      * @param AssignmentRouter $assignments
      */
     public function map(FieldRouter $fields, AssignmentRouter $assignments)

@@ -231,6 +231,8 @@ class BlocksFieldType extends FieldType
             ->setOption('form_view', 'anomaly.field_type.blocks::form')
             ->setOption('wrapper_view', 'anomaly.field_type.blocks::wrapper');
 
+        $extension->fire('extending', ['builder' => $form, 'field' => $field]);
+
         return $form;
     }
 

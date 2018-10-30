@@ -1,10 +1,13 @@
 <?php namespace Anomaly\BlocksModule\Type\Command;
 
 use Anomaly\BlocksModule\Block\BlockExtension;
+use Anomaly\BlocksModule\Block\Form\BlockFormBuilder;
 use Anomaly\BlocksModule\Type\Contract\TypeInterface;
 use Anomaly\BlocksModule\Type\Contract\TypeRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\AddonCollection;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
+use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
+use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
 
 /**
  * Class RegisterBlocks
@@ -19,9 +22,9 @@ class RegisterBlocks
     /**
      * Handle the command.
      *
-     * @param AddonCollection $addons
+     * @param AddonCollection         $addons
      * @param TypeRepositoryInterface $types
-     * @param ExtensionCollection $extensions
+     * @param ExtensionCollection     $extensions
      */
     public function handle(
         AddonCollection $addons,
@@ -53,6 +56,19 @@ class RegisterBlocks
                 ->setWrapper($type->getWrapperLayoutView())
                 ->setPath(realpath(__DIR__ . '/../../../'))
                 ->setProvides('anomaly.module.blocks::block.' . $type->getSlug());
+
+            $extension->on(
+                'extending',
+                function (MultipleFormBuilder $builder) use ($type) {
+
+                    $builder->setOption('block_type', $type->getId());
+
+                    /* @var BlockFormBuilder $block */
+                    $block = $builder->getChildForm('block');
+
+                    $block->setType($type);
+                }
+            );
 
             $addons->put($extension->getNamespace(), $extension);
             $extensions->put($extension->getNamespace(), $extension);

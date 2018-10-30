@@ -36,7 +36,7 @@ class AnomalyModuleBlocksCreateTypesFields extends Migration
             'type'   => 'anomaly.field_type.editor',
             'config' => [
                 'mode'          => 'twig',
-                'default_value' => '{% extends "anomaly.module.blocks::blocks.wrapper" %}',
+                'default_value' => '{% extends "anomaly.module.blocks::types.wrapper" %}',
             ],
         ],
     ];

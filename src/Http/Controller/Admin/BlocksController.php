@@ -2,6 +2,7 @@
 
 use Anomaly\BlocksModule\Area\Command\GetArea;
 use Anomaly\BlocksModule\Area\Contract\AreaInterface;
+use Anomaly\BlocksModule\Block\BlockCategories;
 use Anomaly\BlocksModule\Block\BlockExtension;
 use Anomaly\BlocksModule\Block\Contract\BlockInterface;
 use Anomaly\BlocksModule\Block\Contract\BlockRepositoryInterface;
@@ -104,16 +105,64 @@ class BlocksController extends AdminController
      * @param BlockRepositoryInterface $blocks
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+    public function category(ExtensionCollection $extensions, BlockCategories $categories)
+    {
+        $categories = $categories->getCategories();
+
+        /* @var ExtensionCollection $extensions */
+        $extensions = $extensions
+            ->search('anomaly.module.blocks::block.*')
+            ->enabled()
+            ->sort();
+
+        foreach ($categories as &$category) {
+            $category['count'] = $extensions->filter(
+                function ($extension) use ($category) {
+
+                    /* @var BlockExtension $extension */
+                    return $extension->getCategory() == $category;
+                }
+            )->count();
+        }
+
+        return $this->view->make(
+            'anomaly.module.blocks::admin/categories/choose',
+            [
+                'categories' => $categories,
+            ]
+        );
+    }
+
+    /**
+     * Return a list of blocks to view.
+     *
+     * @param BlockRepositoryInterface $blocks
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function choose(ExtensionCollection $extensions)
     {
+        $category = $this->request->get('category', 'all');
+
+        /* @var ExtensionCollection $extensions */
+        $extensions = $extensions
+            ->search('anomaly.module.blocks::block.*')
+            ->enabled()
+            ->sort();
+
+        if ($category !== 'all') {
+            $extensions = $extensions->filter(
+                function ($extension) use ($category) {
+
+                    /* @var BlockExtension $extension */
+                    return $extension->getCategory() == $category;
+                }
+            );
+        }
+
         return $this->view->make(
             'anomaly.module.blocks::admin/blocks/choose',
             [
-                'extensions' => $extensions
-                    ->search('anomaly.module.blocks::block.*')
-                    ->enabled()
-                    ->sort()
-                    ->all(),
+                'extensions' => $extensions->all(),
             ]
         );
     }

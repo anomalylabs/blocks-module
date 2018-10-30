@@ -49,6 +49,7 @@ class AnomalyModuleBlocksCreateTypesStream extends Migration
         ],
         'description'    => [
             'translatable' => true,
+            'required'     => true,
         ],
         'content_layout' => [
             'required' => true,
