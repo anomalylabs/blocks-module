@@ -9,8 +9,16 @@ return [
         'name'        => 'Content',
         'description' => '',
     ],
+    'component'  => [
+        'name'        => 'Component',
+        'description' => '',
+    ],
     'media'      => [
         'name'        => 'Media',
+        'description' => '',
+    ],
+    'module'     => [
+        'name'        => 'Module',
         'description' => '',
     ],
     'social'     => [
@@ -19,6 +27,10 @@ return [
     ],
     'structural' => [
         'name'        => 'Structural',
+        'description' => '',
+    ],
+    'other'      => [
+        'name'        => 'Other',
         'description' => '',
     ],
 ];

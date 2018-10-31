@@ -24,9 +24,17 @@ class BlockCategories
             'name'        => 'anomaly.module.blocks::category.content.name',
             'description' => 'anomaly.module.blocks::category.content.description',
         ],
+        'component'  => [
+            'name'        => 'anomaly.module.blocks::category.component.name',
+            'description' => 'anomaly.module.blocks::category.component.description',
+        ],
         'media'      => [
             'name'        => 'anomaly.module.blocks::category.media.name',
             'description' => 'anomaly.module.blocks::category.media.description',
+        ],
+        'module'     => [
+            'name'        => 'anomaly.module.blocks::category.module.name',
+            'description' => 'anomaly.module.blocks::category.module.description',
         ],
         'social'     => [
             'name'        => 'anomaly.module.blocks::category.social.name',
@@ -35,6 +43,10 @@ class BlockCategories
         'structural' => [
             'name'        => 'anomaly.module.blocks::category.structural.name',
             'description' => 'anomaly.module.blocks::category.structural.description',
+        ],
+        'other'      => [
+            'name'        => 'anomaly.module.blocks::category.other.name',
+            'description' => 'anomaly.module.blocks::category.other.description',
         ],
     ];
 
