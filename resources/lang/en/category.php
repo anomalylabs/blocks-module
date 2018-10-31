@@ -21,8 +21,8 @@ return [
         'name'        => 'Media',
         'description' => '',
     ],
-    'module'      => [
-        'name'        => 'Module',
+    'addon'      => [
+        'name'        => 'Addon',
         'description' => '',
     ],
     'social'      => [
