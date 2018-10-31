@@ -21,7 +21,21 @@ class CategoryOptions
      */
     public function handle(SelectFieldType $fieldType, BlockCategories $categories)
     {
-        $fieldType->setOptions($categories->getCategories());
+        $categories = $categories->getCategories();
+
+        array_pull($categories, 'all');
+
+        $fieldType->setOptions(
+            array_combine(
+                array_keys($categories),
+                array_map(
+                    function ($category) {
+                        return $category['name'];
+                    },
+                    $categories
+                )
+            )
+        );
     }
 
 }
