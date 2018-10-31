@@ -1,35 +1,39 @@
 <?php
 
 return [
-    'all'       => [
+    'all'         => [
         'name'        => 'All',
-        'description' => '',//'View all available blocks types.',
+        'description' => '',
     ],
-    'content'   => [
+    'content'     => [
         'name'        => 'Content',
         'description' => '',
     ],
-    'component' => [
+    'information' => [
+        'name'        => 'Information',
+        'description' => '',
+    ],
+    'component'   => [
         'name'        => 'Component',
         'description' => '',
     ],
-    'media'     => [
+    'media'       => [
         'name'        => 'Media',
         'description' => '',
     ],
-    'module'    => [
+    'module'      => [
         'name'        => 'Module',
         'description' => '',
     ],
-    'social'    => [
+    'social'      => [
         'name'        => 'Social',
         'description' => '',
     ],
-    'layout'    => [
+    'layout'      => [
         'name'        => 'Layout',
         'description' => '',
     ],
-    'other'     => [
+    'other'       => [
         'name'        => 'Other',
         'description' => '',
     ],
