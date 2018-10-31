@@ -1,5 +1,6 @@
 <?php namespace Anomaly\BlocksModule\Block\Style;
 
+use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
 use Anomaly\SelectFieldType\SelectFieldType;
 
 /**
@@ -11,6 +12,8 @@ use Anomaly\SelectFieldType\SelectFieldType;
  */
 class BorderStyleFieldType extends SelectFieldType
 {
+
+    use ProvidesStyle;
 
     /**
      * The required flag.
@@ -57,6 +60,5 @@ class BorderStyleFieldType extends SelectFieldType
 
         return $config;
     }
-
 
 }
