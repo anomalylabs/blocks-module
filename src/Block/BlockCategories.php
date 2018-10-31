@@ -36,9 +36,9 @@ class BlockCategories
             'name'        => 'anomaly.module.blocks::category.media.name',
             'description' => 'anomaly.module.blocks::category.media.description',
         ],
-        'module'      => [
-            'name'        => 'anomaly.module.blocks::category.module.name',
-            'description' => 'anomaly.module.blocks::category.module.description',
+        'addon'       => [
+            'name'        => 'anomaly.module.blocks::category.addon.name',
+            'description' => 'anomaly.module.blocks::category.addon.description',
         ],
         'social'      => [
             'name'        => 'anomaly.module.blocks::category.social.name',
