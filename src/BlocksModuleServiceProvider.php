@@ -3,6 +3,7 @@
 use Anomaly\BlocksModule\Area\AreaModel;
 use Anomaly\BlocksModule\Area\AreaRepository;
 use Anomaly\BlocksModule\Area\Contract\AreaRepositoryInterface;
+use Anomaly\BlocksModule\Block\BlockCategories;
 use Anomaly\BlocksModule\Block\BlockModel;
 use Anomaly\BlocksModule\Block\BlockRepository;
 use Anomaly\BlocksModule\Block\Contract\BlockRepositoryInterface;
@@ -75,6 +76,7 @@ class BlocksModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
+        BlockCategories::class          => BlockCategories::class,
         AreaRepositoryInterface::class  => AreaRepository::class,
         TypeRepositoryInterface::class  => TypeRepository::class,
         BlockRepositoryInterface::class => BlockRepository::class,
@@ -130,7 +132,7 @@ class BlocksModuleServiceProvider extends AddonServiceProvider
     /**
      * Map additional routes.
      *
-     * @param FieldRouter      $fields
+     * @param FieldRouter $fields
      * @param AssignmentRouter $assignments
      */
     public function map(FieldRouter $fields, AssignmentRouter $assignments)

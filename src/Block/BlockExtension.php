@@ -39,7 +39,7 @@ class BlockExtension extends Extension
      *
      * @var null|string
      */
-    protected $category = 'other';
+    protected $category = null;
 
     /**
      * The block form builder.

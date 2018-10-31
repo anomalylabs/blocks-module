@@ -115,12 +115,12 @@ class BlocksController extends AdminController
             ->enabled()
             ->sort();
 
-        foreach ($categories as &$category) {
+        foreach ($categories as $slug => &$category) {
             $category['count'] = $extensions->filter(
-                function ($extension) use ($category) {
+                function ($extension) use ($slug) {
 
                     /* @var BlockExtension $extension */
-                    return $extension->getCategory() == $category;
+                    return $extension->getCategory() == $slug;
                 }
             )->count();
         }

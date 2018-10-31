@@ -16,35 +16,35 @@ class BlockCategories
      * @var array
      */
     protected $categories = [
-        'all'        => [
+        'all'       => [
             'name'        => 'anomaly.module.blocks::category.all.name',
             'description' => 'anomaly.module.blocks::category.all.description',
         ],
-        'content'    => [
+        'content'   => [
             'name'        => 'anomaly.module.blocks::category.content.name',
             'description' => 'anomaly.module.blocks::category.content.description',
         ],
-        'component'  => [
+        'component' => [
             'name'        => 'anomaly.module.blocks::category.component.name',
             'description' => 'anomaly.module.blocks::category.component.description',
         ],
-        'media'      => [
+        'media'     => [
             'name'        => 'anomaly.module.blocks::category.media.name',
             'description' => 'anomaly.module.blocks::category.media.description',
         ],
-        'module'     => [
+        'module'    => [
             'name'        => 'anomaly.module.blocks::category.module.name',
             'description' => 'anomaly.module.blocks::category.module.description',
         ],
-        'social'     => [
+        'social'    => [
             'name'        => 'anomaly.module.blocks::category.social.name',
             'description' => 'anomaly.module.blocks::category.social.description',
         ],
-        'structural' => [
-            'name'        => 'anomaly.module.blocks::category.structural.name',
-            'description' => 'anomaly.module.blocks::category.structural.description',
+        'layout'    => [
+            'name'        => 'anomaly.module.blocks::category.layout.name',
+            'description' => 'anomaly.module.blocks::category.layout.description',
         ],
-        'other'      => [
+        'other'     => [
             'name'        => 'anomaly.module.blocks::category.other.name',
             'description' => 'anomaly.module.blocks::category.other.description',
         ],

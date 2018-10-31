@@ -65,12 +65,12 @@ class BlocksController extends PublicController
             }
         );
 
-        foreach ($categories as &$category) {
+        foreach ($categories as $slug => &$category) {
             $category['count'] = $extensions->filter(
-                function ($extension) use ($category) {
+                function ($extension) use ($slug) {
 
                     /* @var BlockExtension $extension */
-                    return $extension->getCategory() == $category;
+                    return $extension->getCategory() == $slug;
                 }
             )->count();
         }
@@ -98,6 +98,11 @@ class BlocksController extends PublicController
         /* @var BlocksFieldType $type */
         $type = $field->getType();
 
+        /* @var ExtensionCollection $extensions */
+        $extensions = $extensions->search('anomaly.module.blocks::block.*')
+            ->enabled()
+            ->sort();
+
         $allowed = $type->config('blocks', []);
 
         if (!$allowed) {
@@ -105,22 +110,32 @@ class BlocksController extends PublicController
                 function (BlockExtension $extension) {
                     return $extension->getNamespace();
                 },
-                $extensions->search('anomaly.module.blocks::block.*')
-                    ->enabled()
-                    ->sort()
-                    ->all()
+                $extensions->all()
+            );
+        }
+
+        $extensions = $extensions->filter(
+            function ($extension) use ($allowed) {
+
+                /* @var BlockExtension $extension */
+                return in_array($extension->getNamespace(), $allowed);
+            }
+        );
+
+        if ($category !== 'all') {
+            $extensions = $extensions->filter(
+                function ($extension) use ($category) {
+
+                    /* @var BlockExtension $extension */
+                    return $extension->getCategory() == $category;
+                }
             );
         }
 
         return $this->view->make(
             'anomaly.field_type.blocks::choose',
             [
-                'blocks' => array_map(
-                    function ($extension) use ($extensions) {
-                        return $extensions->get($extension);
-                    },
-                    $allowed
-                ),
+                'blocks' => $extensions->all(),
             ]
         );
     }
