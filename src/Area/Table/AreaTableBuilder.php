@@ -48,7 +48,7 @@ class AreaTableBuilder extends TableBuilder
         'blocks' => [
             'icon' => 'magic',
             'type' => 'primary',
-            'href' => 'admin/blocks/{entry.slug}',
+            'href' => 'admin/blocks/areas/{entry.slug}',
         ],
     ];
 
