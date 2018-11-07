@@ -61,4 +61,10 @@ return [
             'ease-in-out' => 'Ease-in-out',
         ],
     ],
+    'background_image'       => [
+        'label' => 'Background Image',
+    ],
+    'background_color'       => [
+        'label' => 'Background Color',
+    ],
 ];
