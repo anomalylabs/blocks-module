@@ -19,6 +19,9 @@ return [
     'width'                  => [
         'label' => 'Width',
     ],
+    'height'                 => [
+        'label' => 'Height',
+    ],
     'border_width'           => [
         'label' => 'Border Width',
     ],
@@ -66,5 +69,38 @@ return [
     ],
     'background_color'       => [
         'label' => 'Background Color',
+    ],
+    'background_size'        => [
+        'label'  => 'Background Size',
+        'option' => [
+            'auto'    => 'None',
+            'cover'   => 'Cover',
+            'contain' => 'Contain',
+        ],
+    ],
+    'background_position'    => [
+        'label'  => 'Background Position',
+        'option' => [
+            'top_left'      => 'Top Left',
+            'top_center'    => 'Top Center',
+            'top_right'     => 'Top Right',
+            'center_left'   => 'Center Left',
+            'center'        => 'Center',
+            'center_right'  => 'Center Right',
+            'bottom_left'   => 'Bottom Left',
+            'bottom_center' => 'Bottom Center',
+            'bottom_right'  => 'Bottom Right',
+        ],
+    ],
+    'background_repeat'      => [
+        'label'  => 'Background Repeat',
+        'option' => [
+            'no-repeat' => 'No Repeat',
+            'repeat'    => 'Repeat',
+            'repeat-x'  => 'Repeat X (horizontal)',
+            'repeat-y'  => 'Repeat Y (vertical)',
+            'space'     => 'Space',
+            'round'     => 'Round',
+        ],
     ],
 ];

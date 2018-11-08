@@ -61,14 +61,15 @@ trait ProvidesStyle
     }
 
     /**
-     * Return the CSS attribute and value.
+     * Return the CSS style.
      *
+     * @param null $default
      * @return string
      */
-    public function css()
+    public function css($default = null)
     {
         $name = snake_case(str_replace('FieldType', '', (new \ReflectionClass($this))->getShortName()));
 
-        return str_replace('_', '-', $name . ': ' . $this->getValue() . ';');
+        return str_replace('_', '-', $name . ': ' . ($this->getValue() ?: $default) . ';');
     }
 }
