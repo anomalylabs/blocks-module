@@ -17,7 +17,7 @@
     {% if not (field_type.readonly) %}
         <div class="block-controls">
 
-            <a href="{{ url('blocks-field_type/category/' ~ field_type.id() ~ '?prefix=' ~ field_type.prefix) }}"
+            <a href="{{ url('streams/blocks-field_type/category/' ~ field_type.id() ~ '?prefix=' ~ field_type.prefix) }}"
                data-toggle="modal"
                data-instance="{{ instance }}"
                class="btn btn-sm btn-success"

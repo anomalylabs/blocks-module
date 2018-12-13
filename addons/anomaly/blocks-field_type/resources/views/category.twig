@@ -13,7 +13,7 @@
         {% for slug, category in categories %}
             {% if slug == 'all' or category.count > 0 %}
                 <li class="nav-item">
-                    <a href="{{ url_to('/blocks-field_type/choose/' ~ route_parameter('field')) }}/{{ slug }}?prefix={{ request_get('prefix') }}"
+                    <a href="{{ url_to('/streams/blocks-field_type/choose/' ~ route_parameter('field')) }}/{{ slug }}?prefix={{ request_get('prefix') }}"
                        class="nav-link ajax">
                         <strong>{{ trans(category.name) }}</strong>
                         <br>

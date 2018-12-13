@@ -13,7 +13,7 @@
         <ul class="nav nav-pills nav-stacked">
             {% for block in blocks %}
                 <li class="nav-item">
-                    <a href="{{ url_to('/blocks-field_type/form/' ~ route_parameter('field')) }}/{{ block.namespace }}?prefix={{ request_get('prefix') }}"
+                    <a href="{{ url_to('/streams/blocks-field_type/form/' ~ route_parameter('field')) }}/{{ block.namespace }}?prefix={{ request_get('prefix') }}"
                        class="add-row nav-link has-click-event">
                         <strong>{{ trans(block.title) }}</strong>
                         <br>
