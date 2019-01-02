@@ -1,29 +1,36 @@
 <?php namespace Anomaly\BlocksModule\Block\Style;
 
 use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
-use Anomaly\EditorFieldType\EditorFieldType;
+use Anomaly\ColorpickerFieldType\ColorpickerFieldType;
 
 /**
- * Class MainCssFieldType
+ * Class DividerColorFieldType
  *
  * @link   http://pyrocms.com/
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class MainCssFieldType extends EditorFieldType
+class DividerColorFieldType extends ColorpickerFieldType
 {
 
     use ProvidesStyle;
+
+    /**
+     * The required flag.
+     *
+     * @var bool
+     */
+    protected $required = false;
 
     /**
      * The field type label.
      *
      * @var string
      */
-    protected $label = 'anomaly.module.blocks::style.main_css.label';
+    protected $label = 'anomaly.module.blocks::style.divider_color.label';
 
     /**
-     * Get the configuration.
+     * Get the config.
      *
      * @return array
      */
@@ -31,7 +38,7 @@ class MainCssFieldType extends EditorFieldType
     {
         $config = parent::getConfig();
 
-        $config['mode'] = 'css';
+        $config['format'] = 'rgba';
 
         return $config;
     }

@@ -4,13 +4,13 @@ use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
 use Anomaly\EditorFieldType\EditorFieldType;
 
 /**
- * Class BeforeCssFieldType
+ * Class CustomJsFieldType
  *
  * @link   http://pyrocms.com/
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class BeforeCssFieldType extends EditorFieldType
+class CustomJsFieldType extends EditorFieldType
 {
 
     use ProvidesStyle;
@@ -20,7 +20,7 @@ class BeforeCssFieldType extends EditorFieldType
      *
      * @var string
      */
-    protected $label = 'anomaly.module.blocks::style.before_css.label';
+    protected $label = 'anomaly.module.blocks::style.custom_js.label';
 
     /**
      * Get the configuration.
@@ -31,7 +31,7 @@ class BeforeCssFieldType extends EditorFieldType
     {
         $config = parent::getConfig();
 
-        $config['mode'] = 'css';
+        $config['mode'] = 'js';
 
         return $config;
     }

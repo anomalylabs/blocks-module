@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'general' => 'General',
-    'content' => 'Content',
-    'wrapper' => 'Wrapper',
+    'general'  => 'General',
+    'content'  => 'Content',
+    'wrapper'  => 'Wrapper',
 ];

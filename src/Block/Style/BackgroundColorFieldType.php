@@ -29,4 +29,18 @@ class BackgroundColorFieldType extends ColorpickerFieldType
      */
     protected $label = 'anomaly.module.blocks::style.background_color.label';
 
+    /**
+     * Get the config.
+     *
+     * @return array
+     */
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+
+        $config['format'] = 'rgba';
+
+        return $config;
+    }
+
 }

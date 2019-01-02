@@ -4,13 +4,13 @@ use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
 use Anomaly\EditorFieldType\EditorFieldType;
 
 /**
- * Class AfterCssFieldType
+ * Class CustomCssFieldType
  *
  * @link   http://pyrocms.com/
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class AfterCssFieldType extends EditorFieldType
+class CustomCssFieldType extends EditorFieldType
 {
 
     use ProvidesStyle;
@@ -20,7 +20,7 @@ class AfterCssFieldType extends EditorFieldType
      *
      * @var string
      */
-    protected $label = 'anomaly.module.blocks::style.after_css.label';
+    protected $label = 'anomaly.module.blocks::style.custom_css.label';
 
     /**
      * Get the configuration.

@@ -4,13 +4,13 @@ use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
 use Anomaly\IntegerFieldType\IntegerFieldType;
 
 /**
- * Class BorderWidthFieldType
+ * Class BorderRadiusFieldType
  *
  * @link   http://pyrocms.com/
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class BorderWidthFieldType extends IntegerFieldType
+class BorderRadiusFieldType extends IntegerFieldType
 {
 
     use ProvidesStyle;
@@ -32,6 +32,6 @@ class BorderWidthFieldType extends IntegerFieldType
      *
      * @var string
      */
-    protected $label = 'anomaly.module.blocks::style.border_width.label';
+    protected $label = 'anomaly.module.blocks::style.border_radius.label';
 
 }

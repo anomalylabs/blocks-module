@@ -22,8 +22,17 @@ return [
     'height'                 => [
         'label' => 'Height',
     ],
+    'margin'                 => [
+        'label' => 'Margin',
+    ],
+    'padding'                => [
+        'label' => 'Padding',
+    ],
     'border_width'           => [
         'label' => 'Border Width',
+    ],
+    'border_radius'          => [
+        'label' => 'Border Radius',
     ],
     'css_id'                 => [
         'label' => 'CSS ID',
@@ -31,22 +40,11 @@ return [
     'css_class'              => [
         'label' => 'CSS Class',
     ],
-    'before_css'             => [
-        'label' => 'Before CSS',
+    'custom_css'             => [
+        'label' => 'Custom CSS',
     ],
-    'main_css'               => [
-        'label' => 'Main CSS',
-    ],
-    'after_css'              => [
-        'label' => 'After CSS',
-    ],
-    'responsive_visibility'  => [
-        'label'  => 'Disable on',
-        'option' => [
-            'phone'   => 'Phone',
-            'tablet'  => 'Tablet',
-            'desktop' => 'Desktop',
-        ],
+    'custom_js'              => [
+        'label' => 'Custom JS',
     ],
     'transition_duration'    => [
         'label' => 'Transition Duration',
@@ -102,5 +100,50 @@ return [
             'space'     => 'Space',
             'round'     => 'Round',
         ],
+    ],
+    'divider'                => [
+        'label'       => 'Divider',
+        'placeholder' => 'None',
+        'option'      => [
+            'arrow'       => 'Arrow',
+            'arrow2'      => 'Arrow 2',
+            'arrow3'      => 'Arrow 3',
+            'asymmetric'  => 'Asymmetric',
+            'asymmetric2' => 'Asymmetric 2',
+            'asymmetric3' => 'Asymmetric 3',
+            'asymmetric4' => 'Asymmetric 4',
+            'clouds'      => 'Clouds',
+            'clouds2'     => 'Clouds 2',
+            'curve'       => 'Curve',
+            'curve2'      => 'Curve 2',
+            'graph'       => 'Graph',
+            'graph2'      => 'Graph 2',
+            'graph3'      => 'Graph 3',
+            'graph4'      => 'Graph 4',
+            'mountains'   => 'Mountains',
+            'mountains2'  => 'Mountains 2',
+            'ramp'        => 'Ramp',
+            'ramp2'       => 'Ramp 2',
+            'slant'       => 'Slant',
+            'slant2'      => 'Slant 2',
+            'triangle'    => 'Triangle',
+            'wave'        => 'Wave',
+            'wave2'       => 'Wave 2',
+            'waves'       => 'Waves',
+            'waves2'      => 'Waves 2',
+        ],
+    ],
+    'divider_arrangement'    => [
+        'label'  => 'Divider Arrangement',
+        'option' => [
+            'top'    => 'On Top of Section Content',
+            'bottom' => 'Underneath Section Content',
+        ],
+    ],
+    'divider_color'          => [
+        'label' => 'Divider Color',
+    ],
+    'divider_flip_horizontally'          => [
+        'label' => 'Divider Flip (Horizontally)',
     ],
 ];
