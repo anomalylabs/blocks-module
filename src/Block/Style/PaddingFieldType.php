@@ -32,4 +32,84 @@ class PaddingFieldType extends IntegerFieldType
      */
     protected $label = 'anomaly.module.blocks::style.padding.label';
 
+    /**
+     * The input view.
+     *
+     * @var string
+     */
+    protected $inputView = 'anomaly.module.blocks::style/padding';
+
+    /**
+     * Return the sub-fields.
+     *
+     * @param string $prefix
+     * @return array
+     */
+    public static function fields($prefix = '')
+    {
+        return [
+            $prefix . 'padding'                => PaddingFieldType::class,
+
+            /**
+             * Desktop Field Set
+             */
+            $prefix . 'desktop_padding_top'    => [
+                'type'  => PaddingTopFieldType::class,
+                'label' => 'anomaly.module.blocks::style.top.label',
+            ],
+            $prefix . 'desktop_padding_left'   => [
+                'type'  => PaddingLeftFieldType::class,
+                'label' => 'anomaly.module.blocks::style.left.label',
+            ],
+            $prefix . 'desktop_padding_right'  => [
+                'type'  => PaddingRightFieldType::class,
+                'label' => 'anomaly.module.blocks::style.right.label',
+            ],
+            $prefix . 'desktop_padding_bottom' => [
+                'type'  => PaddingBottomFieldType::class,
+                'label' => 'anomaly.module.blocks::style.bottom.label',
+            ],
+
+            /**
+             * Tablet Field Set
+             */
+            $prefix . 'tablet_padding_top'     => [
+                'type'  => PaddingTopFieldType::class,
+                'label' => 'anomaly.module.blocks::style.top.label',
+            ],
+            $prefix . 'tablet_padding_left'    => [
+                'type'  => PaddingLeftFieldType::class,
+                'label' => 'anomaly.module.blocks::style.left.label',
+            ],
+            $prefix . 'tablet_padding_right'   => [
+                'type'  => PaddingRightFieldType::class,
+                'label' => 'anomaly.module.blocks::style.right.label',
+            ],
+            $prefix . 'tablet_padding_bottom'  => [
+                'type'  => PaddingBottomFieldType::class,
+                'label' => 'anomaly.module.blocks::style.bottom.label',
+            ],
+
+            /**
+             * Phone Field Set
+             */
+            $prefix . 'phone_padding_top'      => [
+                'type'  => PaddingTopFieldType::class,
+                'label' => 'anomaly.module.blocks::style.top.label',
+            ],
+            $prefix . 'phone_padding_left'     => [
+                'type'  => PaddingLeftFieldType::class,
+                'label' => 'anomaly.module.blocks::style.left.label',
+            ],
+            $prefix . 'phone_padding_right'    => [
+                'type'  => PaddingRightFieldType::class,
+                'label' => 'anomaly.module.blocks::style.right.label',
+            ],
+            $prefix . 'phone_padding_bottom'   => [
+                'type'  => PaddingBottomFieldType::class,
+                'label' => 'anomaly.module.blocks::style.bottom.label',
+            ],
+        ];
+    }
+
 }

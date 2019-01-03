@@ -1,7 +1,41 @@
 <?php
 
 return [
-    'border_style'           => [
+    'desktop'      => [
+        'label' => 'Desktop',
+    ],
+    'tablet'       => [
+        'label' => 'Tablet',
+    ],
+    'phone'        => [
+        'label' => 'Phone',
+    ],
+    'top'          => [
+        'label' => 'Top',
+    ],
+    'top_left'     => [
+        'label' => 'Top Left',
+    ],
+    'top_right'    => [
+        'label' => 'Top Right',
+    ],
+    'bottom'       => [
+        'label' => 'Bottom',
+    ],
+    'bottom_left'  => [
+        'label' => 'Bottom Left',
+    ],
+    'bottom_right' => [
+        'label' => 'Bottom Right',
+    ],
+    'left'         => [
+        'label' => 'Left',
+    ],
+    'right'        => [
+        'label' => 'Right',
+    ],
+
+    'border_style'              => [
         'label'  => 'Border Style',
         'option' => [
             'none'   => 'None',
@@ -16,43 +50,55 @@ return [
             'outset' => 'Outset',
         ],
     ],
-    'width'                  => [
+    'width'                     => [
         'label' => 'Width',
     ],
-    'height'                 => [
+    'height'                    => [
         'label' => 'Height',
     ],
-    'margin'                 => [
+    'margin'                    => [
         'label' => 'Margin',
     ],
-    'padding'                => [
+    'top_margin'                => [
+        'label' => 'Top Margin',
+    ],
+    'bottom_margin'             => [
+        'label' => 'Bottom Margin',
+    ],
+    'left_margin'               => [
+        'label' => 'Left Margin',
+    ],
+    'right_margin'              => [
+        'label' => 'Right Margin',
+    ],
+    'padding'                   => [
         'label' => 'Padding',
     ],
-    'border_width'           => [
+    'border_width'              => [
         'label' => 'Border Width',
     ],
-    'border_radius'          => [
+    'border_radius'             => [
         'label' => 'Border Radius',
     ],
-    'css_id'                 => [
+    'css_id'                    => [
         'label' => 'CSS ID',
     ],
-    'css_class'              => [
+    'css_class'                 => [
         'label' => 'CSS Class',
     ],
-    'custom_css'             => [
+    'custom_css'                => [
         'label' => 'Custom CSS',
     ],
-    'custom_js'              => [
+    'custom_js'                 => [
         'label' => 'Custom JS',
     ],
-    'transition_duration'    => [
+    'transition_duration'       => [
         'label' => 'Transition Duration',
     ],
-    'transition_delay'       => [
+    'transition_delay'          => [
         'label' => 'Transition Delay',
     ],
-    'transition_speed_curve' => [
+    'transition_speed_curve'    => [
         'label'  => 'Transition Speed Curve',
         'option' => [
             'linear'      => 'Linear',
@@ -62,13 +108,13 @@ return [
             'ease-in-out' => 'Ease-in-out',
         ],
     ],
-    'background_image'       => [
+    'background_image'          => [
         'label' => 'Background Image',
     ],
-    'background_color'       => [
+    'background_color'          => [
         'label' => 'Background Color',
     ],
-    'background_size'        => [
+    'background_size'           => [
         'label'  => 'Background Size',
         'option' => [
             'auto'    => 'None',
@@ -76,7 +122,7 @@ return [
             'contain' => 'Contain',
         ],
     ],
-    'background_position'    => [
+    'background_position'       => [
         'label'  => 'Background Position',
         'option' => [
             'top_left'      => 'Top Left',
@@ -90,7 +136,7 @@ return [
             'bottom_right'  => 'Bottom Right',
         ],
     ],
-    'background_repeat'      => [
+    'background_repeat'         => [
         'label'  => 'Background Repeat',
         'option' => [
             'no-repeat' => 'No Repeat',
@@ -101,7 +147,7 @@ return [
             'round'     => 'Round',
         ],
     ],
-    'divider'                => [
+    'divider'                   => [
         'label'       => 'Divider',
         'placeholder' => 'None',
         'option'      => [
@@ -133,17 +179,17 @@ return [
             'waves2'      => 'Waves 2',
         ],
     ],
-    'divider_arrangement'    => [
+    'divider_arrangement'       => [
         'label'  => 'Divider Arrangement',
         'option' => [
             'top'    => 'On Top of Section Content',
             'bottom' => 'Underneath Section Content',
         ],
     ],
-    'divider_color'          => [
+    'divider_color'             => [
         'label' => 'Divider Color',
     ],
-    'divider_flip_horizontally'          => [
+    'divider_flip_horizontally' => [
         'label' => 'Divider Flip (Horizontally)',
     ],
 ];
