@@ -7,6 +7,7 @@
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
+use Anomaly\Streams\Platform\Addon\FieldType\FieldTypeModifier;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 
 /**
@@ -40,6 +41,33 @@ trait ProvidesStyle
     public function getNamespace($key = null)
     {
         return 'anomaly.field_type.' . $this->getSlug() . ($key ? '::' . $key : $key);
+    }
+
+    /**
+     * Get the modifier.
+     *
+     * @return FieldTypeModifier
+     */
+    public function getModifier()
+    {
+        /* @var FieldTypeModifier $modifier */
+        if (is_object($modifier = $this->modifier)) {
+            return $modifier->setFieldType($this);
+        }
+
+        if (!$this->modifier) {
+            $this->modifier = parent::class . 'Modifier';
+        }
+
+        if (!class_exists($this->modifier)) {
+            $this->modifier = FieldTypeModifier::class;
+        }
+
+        $modifier = app()->make($this->modifier);
+
+        $modifier->setFieldType($this);
+
+        return $this->modifier = $modifier;
     }
 
     /**

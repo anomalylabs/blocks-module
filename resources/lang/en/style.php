@@ -1,40 +1,39 @@
 <?php
 
 return [
-    'desktop'      => [
+    'desktop'                   => [
         'label' => 'Desktop',
     ],
-    'tablet'       => [
+    'tablet'                    => [
         'label' => 'Tablet',
     ],
-    'phone'        => [
+    'phone'                     => [
         'label' => 'Phone',
     ],
-    'top'          => [
+    'top'                       => [
         'label' => 'Top',
     ],
-    'top_left'     => [
+    'top_left'                  => [
         'label' => 'Top Left',
     ],
-    'top_right'    => [
+    'top_right'                 => [
         'label' => 'Top Right',
     ],
-    'bottom'       => [
+    'bottom'                    => [
         'label' => 'Bottom',
     ],
-    'bottom_left'  => [
+    'bottom_left'               => [
         'label' => 'Bottom Left',
     ],
-    'bottom_right' => [
+    'bottom_right'              => [
         'label' => 'Bottom Right',
     ],
-    'left'         => [
+    'left'                      => [
         'label' => 'Left',
     ],
-    'right'        => [
+    'right'                     => [
         'label' => 'Right',
     ],
-
     'border_style'              => [
         'label'  => 'Border Style',
         'option' => [
@@ -191,5 +190,14 @@ return [
     ],
     'divider_flip_horizontally' => [
         'label' => 'Divider Flip (Horizontally)',
+    ],
+    'disabled'                  => [
+        'label'        => 'Disable',
+        'instructions' => 'Disable on the following devices:',
+        'option'       => [
+            'phone'   => 'Phone',
+            'tablet'  => 'Tablet',
+            'desktop' => 'Desktop',
+        ],
     ],
 ];
