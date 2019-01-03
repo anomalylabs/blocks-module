@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'default'                   => [
+        'label' => 'Default',
+    ],
+    'hover'                     => [
+        'label' => 'Hover',
+    ],
     'desktop'                   => [
         'label' => 'Desktop',
     ],
@@ -78,6 +84,9 @@ return [
     ],
     'border_radius'             => [
         'label' => 'Border Radius',
+    ],
+    'border_color'              => [
+        'label' => 'Border Color',
     ],
     'css_id'                    => [
         'label' => 'CSS ID',

@@ -44,19 +44,19 @@ class MarginFieldType extends TextFieldType
              * Desktop Field Set
              */
             $prefix . 'desktop_margin_top'    => [
-                'type'  => MarginTopFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
             $prefix . 'desktop_margin_left'   => [
-                'type'  => MarginLeftFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
             $prefix . 'desktop_margin_right'  => [
-                'type'  => MarginRightFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
             $prefix . 'desktop_margin_bottom' => [
-                'type'  => MarginBottomFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
 
@@ -64,19 +64,19 @@ class MarginFieldType extends TextFieldType
              * Tablet Field Set
              */
             $prefix . 'tablet_margin_top'     => [
-                'type'  => MarginTopFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
             $prefix . 'tablet_margin_left'    => [
-                'type'  => MarginLeftFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
             $prefix . 'tablet_margin_right'   => [
-                'type'  => MarginRightFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
             $prefix . 'tablet_margin_bottom'  => [
-                'type'  => MarginBottomFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
 
@@ -84,19 +84,19 @@ class MarginFieldType extends TextFieldType
              * Phone Field Set
              */
             $prefix . 'phone_margin_top'      => [
-                'type'  => MarginTopFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
             $prefix . 'phone_margin_left'     => [
-                'type'  => MarginLeftFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
             $prefix . 'phone_margin_right'    => [
-                'type'  => MarginRightFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
             $prefix . 'phone_margin_bottom'   => [
-                'type'  => MarginBottomFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
         ];

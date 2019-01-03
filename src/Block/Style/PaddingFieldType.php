@@ -2,6 +2,7 @@
 
 use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
 use Anomaly\IntegerFieldType\IntegerFieldType;
+use Anomaly\TextFieldType\TextFieldType;
 
 /**
  * Class PaddingFieldType
@@ -54,19 +55,19 @@ class PaddingFieldType extends IntegerFieldType
              * Desktop Field Set
              */
             $prefix . 'desktop_padding_top'    => [
-                'type'  => PaddingTopFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
             $prefix . 'desktop_padding_left'   => [
-                'type'  => PaddingLeftFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
             $prefix . 'desktop_padding_right'  => [
-                'type'  => PaddingRightFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
             $prefix . 'desktop_padding_bottom' => [
-                'type'  => PaddingBottomFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
 
@@ -74,19 +75,19 @@ class PaddingFieldType extends IntegerFieldType
              * Tablet Field Set
              */
             $prefix . 'tablet_padding_top'     => [
-                'type'  => PaddingTopFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
             $prefix . 'tablet_padding_left'    => [
-                'type'  => PaddingLeftFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
             $prefix . 'tablet_padding_right'   => [
-                'type'  => PaddingRightFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
             $prefix . 'tablet_padding_bottom'  => [
-                'type'  => PaddingBottomFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
 
@@ -94,19 +95,19 @@ class PaddingFieldType extends IntegerFieldType
              * Phone Field Set
              */
             $prefix . 'phone_padding_top'      => [
-                'type'  => PaddingTopFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
             $prefix . 'phone_padding_left'     => [
-                'type'  => PaddingLeftFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
             $prefix . 'phone_padding_right'    => [
-                'type'  => PaddingRightFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
             $prefix . 'phone_padding_bottom'   => [
-                'type'  => PaddingBottomFieldType::class,
+                'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
         ];
