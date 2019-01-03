@@ -192,7 +192,7 @@ return [
         'label' => 'Divider Flip (Horizontally)',
     ],
     'disabled'                  => [
-        'label'        => 'Disable',
+        'label'        => 'Visibility',
         'instructions' => 'Disable on the following devices:',
         'option'       => [
             'phone'   => 'Phone',
