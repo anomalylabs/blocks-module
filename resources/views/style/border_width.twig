@@ -1,95 +1,64 @@
 <ul class="nav nav-sections nav-alt" style="margin-bottom: 0;">
     <li class="active">
-        <a href="#{{ form.fields.border_width.input_name }}_desktop" data-toggle="tab">
-            {{ trans('anomaly.module.blocks::style.desktop.label') }}
+        <a href="#{{ form.fields.border_width.input_name }}_default" data-toggle="tab">
+            {{ trans('anomaly.module.blocks::style.default.label') }}
         </a>
     </li>
     <li>
-        <a href="#{{ form.fields.border_width.input_name }}_tablet" data-toggle="tab">
-            {{ trans('anomaly.module.blocks::style.tablet.label') }}
-        </a>
-    </li>
-    <li>
-        <a href="#{{ form.fields.border_width.input_name }}_phone" data-toggle="tab">
-            {{ trans('anomaly.module.blocks::style.phone.label') }}
+        <a href="#{{ form.fields.border_width.input_name }}_hover" data-toggle="tab">
+            {{ trans('anomaly.module.blocks::style.hover.label') }}
         </a>
     </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane tab-alt active" id="{{ form.fields.border_width.input_name }}_desktop">
+    <div class="tab-pane tab-alt active" id="{{ form.fields.border_width.input_name }}_default">
         <div class="card card-container">
             <div class="row">
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.desktop_border_width_top.render({'form': form})|raw }}
+                        {{ form.fields.default_border_top_width.render({'form': form})|raw }}
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.desktop_border_width_bottom.render({'form': form})|raw }}
+                        {{ form.fields.default_border_bottom_width.render({'form': form})|raw }}
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.desktop_border_width_left.render({'form': form})|raw }}
+                        {{ form.fields.default_border_left_width.render({'form': form})|raw }}
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.desktop_border_width_right.render({'form': form})|raw }}
+                        {{ form.fields.default_border_right_width.render({'form': form})|raw }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="tab-pane tab-alt" id="{{ form.fields.border_width.input_name }}_tablet">
+    <div class="tab-pane tab-alt" id="{{ form.fields.border_width.input_name }}_hover">
         <div class="card card-container">
             <div class="row">
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.tablet_border_width_top.render({'form': form})|raw }}
+                        {{ form.fields.hover_border_top_width.render({'form': form})|raw }}
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.tablet_border_width_bottom.render({'form': form})|raw }}
+                        {{ form.fields.hover_border_bottom_width.render({'form': form})|raw }}
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.tablet_border_width_left.render({'form': form})|raw }}
+                        {{ form.fields.hover_border_left_width.render({'form': form})|raw }}
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="card-block">
-                        {{ form.fields.tablet_border_width_right.render({'form': form})|raw }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane tab-alt" id="{{ form.fields.border_width.input_name }}_phone">
-        <div class="card card-container">
-            <div class="row">
-                <div class="col-md-12 col-lg-6">
-                    <div class="card-block">
-                        {{ form.fields.phone_border_width_top.render({'form': form})|raw }}
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6">
-                    <div class="card-block">
-                        {{ form.fields.phone_border_width_bottom.render({'form': form})|raw }}
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6">
-                    <div class="card-block">
-                        {{ form.fields.phone_border_width_left.render({'form': form})|raw }}
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6">
-                    <div class="card-block">
-                        {{ form.fields.phone_border_width_right.render({'form': form})|raw }}
+                        {{ form.fields.hover_border_right_width.render({'form': form})|raw }}
                     </div>
                 </div>
             </div>

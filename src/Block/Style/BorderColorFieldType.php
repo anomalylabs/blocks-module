@@ -40,12 +40,18 @@ class BorderColorFieldType extends ColorpickerFieldType
         return [
             $prefix . 'border_color'         => BorderColorFieldType::class,
             $prefix . 'default_border_color' => [
-                'type'  => ColorpickerFieldType::class,
-                'label' => 'anomaly.module.blocks::style.border_color.label',
+                'type'   => ColorpickerFieldType::class,
+                'label'  => 'anomaly.module.blocks::style.border_color.label',
+                'config' => [
+                    'format' => 'rgba',
+                ],
             ],
             $prefix . 'hover_border_color'   => [
-                'type'  => ColorpickerFieldType::class,
-                'label' => 'anomaly.module.blocks::style.border_color.label',
+                'type'   => ColorpickerFieldType::class,
+                'label'  => 'anomaly.module.blocks::style.border_color.label',
+                'config' => [
+                    'format' => 'rgba',
+                ],
             ],
         ];
     }

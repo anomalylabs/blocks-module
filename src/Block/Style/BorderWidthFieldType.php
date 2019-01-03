@@ -41,61 +41,41 @@ class BorderWidthFieldType extends TextFieldType
             $prefix . 'border_width'                => BorderWidthFieldType::class,
 
             /**
-             * Desktop Field Set
+             * Default Field Set
              */
-            $prefix . 'desktop_border_width_top'    => [
+            $prefix . 'default_border_top_width'    => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
-            $prefix . 'desktop_border_width_left'   => [
+            $prefix . 'default_border_left_width'   => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
-            $prefix . 'desktop_border_width_right'  => [
+            $prefix . 'default_border_right_width'  => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
-            $prefix . 'desktop_border_width_bottom' => [
+            $prefix . 'default_border_bottom_width' => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
 
             /**
-             * Tablet Field Set
+             * Hover Field Set
              */
-            $prefix . 'tablet_border_width_top'     => [
+            $prefix . 'hover_border_top_width'      => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.top.label',
             ],
-            $prefix . 'tablet_border_width_left'    => [
+            $prefix . 'hover_border_left_width'     => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.left.label',
             ],
-            $prefix . 'tablet_border_width_right'   => [
+            $prefix . 'hover_border_right_width'    => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.right.label',
             ],
-            $prefix . 'tablet_border_width_bottom'  => [
-                'type'  => TextFieldType::class,
-                'label' => 'anomaly.module.blocks::style.bottom.label',
-            ],
-
-            /**
-             * Phone Field Set
-             */
-            $prefix . 'phone_border_width_top'      => [
-                'type'  => TextFieldType::class,
-                'label' => 'anomaly.module.blocks::style.top.label',
-            ],
-            $prefix . 'phone_border_width_left'     => [
-                'type'  => TextFieldType::class,
-                'label' => 'anomaly.module.blocks::style.left.label',
-            ],
-            $prefix . 'phone_border_width_right'    => [
-                'type'  => TextFieldType::class,
-                'label' => 'anomaly.module.blocks::style.right.label',
-            ],
-            $prefix . 'phone_border_width_bottom'   => [
+            $prefix . 'hover_border_bottom_width'   => [
                 'type'  => TextFieldType::class,
                 'label' => 'anomaly.module.blocks::style.bottom.label',
             ],
