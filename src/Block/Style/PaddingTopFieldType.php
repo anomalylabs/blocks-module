@@ -1,7 +1,7 @@
 <?php namespace Anomaly\BlocksModule\Block\Style;
 
 use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
-use Anomaly\IntegerFieldType\IntegerFieldType;
+use Anomaly\TextFieldType\TextFieldType;
 
 /**
  * Class PaddingTopFieldType
@@ -10,20 +10,10 @@ use Anomaly\IntegerFieldType\IntegerFieldType;
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class PaddingTopFieldType extends IntegerFieldType
+class PaddingTopFieldType extends TextFieldType
 {
 
     use ProvidesStyle;
-
-    /**
-     * The field config.
-     *
-     * @var array
-     */
-    protected $config = [
-        'step'      => 1,
-        'separator' => '',
-    ];
 
     /**
      * The field type label.

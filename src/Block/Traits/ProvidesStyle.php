@@ -96,6 +96,15 @@ trait ProvidesStyle
      */
     public function css($default = null)
     {
+
+        /**
+         * If there is nothing to be done
+         * then don't print a rule at all.
+         */
+        if ($this->getValue() === null && $default == null) {
+            return '';
+        }
+
         $name = snake_case(str_replace('FieldType', '', (new \ReflectionClass($this))->getShortName()));
 
         return str_replace('_', '-', $name . ': ' . ($this->getValue() ?: $default) . ';');

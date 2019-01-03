@@ -1,7 +1,7 @@
 <?php namespace Anomaly\BlocksModule\Block\Style;
 
 use Anomaly\BlocksModule\Block\Traits\ProvidesStyle;
-use Anomaly\IntegerFieldType\IntegerFieldType;
+use Anomaly\TextFieldType\TextFieldType;
 
 /**
  * Class MarginTopFieldType
@@ -10,21 +10,11 @@ use Anomaly\IntegerFieldType\IntegerFieldType;
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class MarginTopFieldType extends IntegerFieldType
+class MarginTopFieldType extends TextFieldType
 {
 
     use ProvidesStyle;
-
-    /**
-     * The field config.
-     *
-     * @var array
-     */
-    protected $config = [
-        'step'      => 1,
-        'separator' => '',
-    ];
-
+    
     /**
      * The field type label.
      *
