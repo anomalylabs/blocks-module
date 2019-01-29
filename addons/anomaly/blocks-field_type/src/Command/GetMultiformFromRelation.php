@@ -18,7 +18,6 @@ use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
  */
 class GetMultiformFromRelation
 {
-
     /**
      * The field type instance.
      *
@@ -40,7 +39,8 @@ class GetMultiformFromRelation
      * Get the multiple form builder from the value.
      *
      * @param FieldRepositoryInterface $fields
-     * @param MultipleFormBuilder $forms
+     * @param MultipleFormBuilder      $forms
+     *
      * @return MultipleFormBuilder|null
      */
     public function handle(FieldRepositoryInterface $fields, MultipleFormBuilder $forms)
@@ -87,10 +87,11 @@ class GetMultiformFromRelation
                     ->setScope($entry->getId());
             }
 
+            $blockSubtitle = (method_exists($entry->getEntry(), 'getBlockSubtitle')) ? $entry->getEntry()->getBlockSubtitle() : $entry->getTitle();
             $form
                 ->setReadOnly($this->fieldType->isReadOnly())
                 ->setOption('block_id', $entry->getId())
-                ->setOption('block_subtitle', $entry->getTitle());
+                ->setOption('block_subtitle', $blockSubtitle);
 
             $forms->addForm($this->fieldType->getFieldName() . '_' . $instance, $form);
         }
