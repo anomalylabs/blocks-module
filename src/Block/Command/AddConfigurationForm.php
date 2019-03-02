@@ -53,6 +53,7 @@ class AddConfigurationForm
             return;
         }
 
+        $configuration->setOption('locking_enabled', false);
         $configuration->setEntry($this->extension->getNamespace());
 
         if ($block = $this->builder->getChildEntry('block')) {

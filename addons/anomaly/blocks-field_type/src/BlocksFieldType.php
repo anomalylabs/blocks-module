@@ -203,6 +203,7 @@ class BlocksFieldType extends FieldType
 
         $block
             ->setExtension($extension)
+            ->setOption('locking_enabled', false)
             ->setOption('success_message', false);
 
         $form->on(
@@ -222,6 +223,7 @@ class BlocksFieldType extends FieldType
         $extension->extend($form);
 
         $form
+            ->setOption('locking_enabled', false)
             ->setOption('success_message', false)
             ->setOption('block_instance', $instance)
             ->setOption('block_field', $field->getId())

@@ -55,6 +55,7 @@ class AddStreamForm
         /* @var FormBuilder $form */
         $form = $container->make($this->extension->getForm());
 
+        $form->setOption('locking_enabled', false);
         $form->setModel($this->extension->getModel());
         $form->setEntry($this->extension->getBlockEntryId());
 
