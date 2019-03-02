@@ -8,7 +8,6 @@ use Anomaly\BlocksModule\Block\Form\BlockFormBuilder;
 use Anomaly\ConfigurationModule\Configuration\Form\ConfigurationFormBuilder;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
 use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
-use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
 use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
 use Illuminate\Http\Request;
 
@@ -43,7 +42,6 @@ class GetMultiformFromPost
      * Handle the command.
      *
      * @param ExtensionCollection $extensions
-     * @param FieldRepositoryInterface $fields
      * @param BlockRepositoryInterface $blocks
      * @param MultipleFormBuilder $forms
      * @param Request $request
@@ -51,7 +49,6 @@ class GetMultiformFromPost
      */
     public function handle(
         ExtensionCollection $extensions,
-        FieldRepositoryInterface $fields,
         BlockRepositoryInterface $blocks,
         MultipleFormBuilder $forms,
         Request $request
@@ -62,20 +59,10 @@ class GetMultiformFromPost
 
         foreach ($request->get($this->fieldType->getFieldName()) as $item) {
 
-            /* @var FieldInterface $field */
-            if (!$field = $fields->find($item['field'])) {
-                continue;
-            }
-
             /* @var BlockExtension $extension */
             if (!$extension = $extensions->get($item['extension'])) {
                 continue;
             }
-
-            /* @var BlocksFieldType $type */
-            $type = $field->getType();
-
-            $type->setPrefix($this->fieldType->getPrefix());
 
             $extension->unsetBlock();
 
@@ -83,6 +70,16 @@ class GetMultiformFromPost
             if ($item['block'] && $block = $blocks->find($item['block'])) {
                 $extension->setBlock($block);
             }
+
+            /* @var FieldInterface $field */
+            if (!$field = $block->getAreaField()) {
+                continue;
+            }
+
+            /* @var BlocksFieldType $type */
+            $type = $field->getType();
+
+            $type->setPrefix($this->fieldType->getPrefix());
 
             $form = $type->form(
                 $field,

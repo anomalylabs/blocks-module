@@ -7,6 +7,7 @@ use Anomaly\ConfigurationModule\Configuration\Contract\ConfigurationRepositoryIn
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
+use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
 use Anomaly\Streams\Platform\Model\Blocks\BlocksBlocksEntryModel;
 
 /**
@@ -26,6 +27,7 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
      */
     protected $with = [
         'entry',
+        'field',
     ];
 
     /**
@@ -84,6 +86,16 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
         $this->dispatch(new MakeBlock($this));
 
         return $this;
+    }
+
+    /**
+     * Get the area field.
+     *
+     * @return FieldInterface
+     */
+    public function getAreaField()
+    {
+        return $this->field;
     }
 
     /**

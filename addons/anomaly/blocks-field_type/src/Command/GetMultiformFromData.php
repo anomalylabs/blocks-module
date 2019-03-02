@@ -9,7 +9,6 @@ use Anomaly\ConfigurationModule\Configuration\Form\ConfigurationFormBuilder;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
-use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
 use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
 
 /**
@@ -43,14 +42,12 @@ class GetMultiformFromData
      * Get the multiple form builder from the value.
      *
      * @param ExtensionCollection $extensions
-     * @param FieldRepositoryInterface $fields
      * @param BlockRepositoryInterface $blocks
      * @param MultipleFormBuilder $forms
      * @return MultipleFormBuilder|null
      */
     public function handle(
         ExtensionCollection $extensions,
-        FieldRepositoryInterface $fields,
         BlockRepositoryInterface $blocks,
         MultipleFormBuilder $forms
     ) {
@@ -62,20 +59,10 @@ class GetMultiformFromData
 
         foreach ($value as $item) {
 
-            /* @var FieldInterface $field */
-            if (!$field = $fields->find($item['field'])) {
-                continue;
-            }
-
             /* @var BlockExtension $extension */
             if (!$extension = $extensions->get($item['extension'])) {
                 continue;
             }
-
-            /* @var BlocksFieldType $type */
-            $type = $field->getType();
-
-            $type->setPrefix($this->fieldType->getPrefix());
 
             $extension->unsetBlock();
 
@@ -83,6 +70,16 @@ class GetMultiformFromData
             if ($item['block'] && $block = $blocks->find($item['block'])) {
                 $extension->setBlock($block);
             }
+
+            /* @var FieldInterface $field */
+            if (!$field = $block->getAreaField()) {
+                continue;
+            }
+
+            /* @var BlocksFieldType $type */
+            $type = $field->getType();
+
+            $type->setPrefix($this->fieldType->getPrefix());
 
             $form = $type->form(
                 $field,

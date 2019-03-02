@@ -22,9 +22,9 @@ class BlocksController extends PublicController
      * Choose what kind of row to add.
      *
      * @param FieldRepositoryInterface $fields
-     * @param ExtensionCollection      $extensions
-     * @param BlockCategories          $categories
-     * @param                          $field
+     * @param ExtensionCollection $extensions
+     * @param BlockCategories $categories
+     * @param $field
      * @return \Illuminate\Contracts\View\View|mixed
      */
     public function category(
