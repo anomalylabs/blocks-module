@@ -1,12 +1,10 @@
 <?php
 
-use Anomaly\BlocksFieldType\Support\Config\BlocksHandler;
-
 return [
     'blocks' => [
         'type'   => 'anomaly.field_type.checkboxes',
         'config' => [
-            'handler' => BlocksHandler::class,
+            'handler' => \Anomaly\BlocksFieldType\Support\Config\BlocksHandler::class,
         ],
     ],
     'min'    => [
