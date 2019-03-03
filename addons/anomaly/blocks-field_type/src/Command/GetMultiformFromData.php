@@ -9,6 +9,7 @@ use Anomaly\ConfigurationModule\Configuration\Form\ConfigurationFormBuilder;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
+use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
 use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
 
 /**
@@ -42,12 +43,14 @@ class GetMultiformFromData
      * Get the multiple form builder from the value.
      *
      * @param ExtensionCollection $extensions
+     * @param FieldRepositoryInterface $fields
      * @param BlockRepositoryInterface $blocks
      * @param MultipleFormBuilder $forms
      * @return MultipleFormBuilder|null
      */
     public function handle(
         ExtensionCollection $extensions,
+        FieldRepositoryInterface $fields,
         BlockRepositoryInterface $blocks,
         MultipleFormBuilder $forms
     ) {
@@ -59,20 +62,13 @@ class GetMultiformFromData
 
         foreach ($value as $item) {
 
-            /* @var BlockExtension $extension */
-            if (!$extension = $extensions->get($item['extension'])) {
+            /* @var FieldInterface $field */
+            if (!$field = $fields->find($item['field'])) {
                 continue;
             }
 
-            $extension->unsetBlock();
-
-            /* @var BlockInterface $block */
-            if ($item['block'] && $block = $blocks->findWithoutRelations($item['block'])) {
-                $extension->setBlock($block);
-            }
-
-            /* @var FieldInterface $field */
-            if (!$field = $block->getAreaField()) {
+            /* @var BlockExtension $extension */
+            if (!$extension = $extensions->get($item['extension'])) {
                 continue;
             }
 
@@ -80,6 +76,13 @@ class GetMultiformFromData
             $type = $field->getType();
 
             $type->setPrefix($this->fieldType->getPrefix());
+
+            $extension->unsetBlock();
+
+            /* @var BlockInterface $block */
+            if ($item['block'] && $block = $blocks->findWithoutRelations($item['block'])) {
+                $extension->setBlock($block);
+            }
 
             $form = $type->form(
                 $field,
