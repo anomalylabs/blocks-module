@@ -27,7 +27,7 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
      */
     protected $with = [
         'entry',
-        'field',
+        'field.translations',
     ];
 
     /**

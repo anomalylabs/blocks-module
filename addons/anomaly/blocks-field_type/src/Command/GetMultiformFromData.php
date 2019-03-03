@@ -67,7 +67,7 @@ class GetMultiformFromData
             $extension->unsetBlock();
 
             /* @var BlockInterface $block */
-            if ($item['block'] && $block = $blocks->find($item['block'])) {
+            if ($item['block'] && $block = $blocks->findWithoutRelations($item['block'])) {
                 $extension->setBlock($block);
             }
 
