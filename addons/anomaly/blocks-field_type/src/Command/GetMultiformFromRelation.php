@@ -5,6 +5,7 @@ use Anomaly\BlocksModule\Block\Contract\BlockInterface;
 use Anomaly\ConfigurationModule\Configuration\Form\ConfigurationFormBuilder;
 use Anomaly\Streams\Platform\Entry\EntryCollection;
 use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
+use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
 use Anomaly\Streams\Platform\Support\Decorator;
 use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
 
@@ -38,10 +39,11 @@ class GetMultiformFromRelation
     /**
      * Get the multiple form builder from the value.
      *
+     * @param FieldRepositoryInterface $fields
      * @param MultipleFormBuilder $forms
      * @return MultipleFormBuilder|null
      */
-    public function handle(MultipleFormBuilder $forms)
+    public function handle(FieldRepositoryInterface $fields, MultipleFormBuilder $forms)
     {
         /* @var EntryCollection $value */
         if (!$value = $this->fieldType->getValue()) {
@@ -57,7 +59,7 @@ class GetMultiformFromRelation
             $extension = $decorator->undecorate($entry->extension());
 
             /* @var FieldInterface $field */
-            if (!$field = $entry->getAreaField()) {
+            if (!$field = $fields->find($this->fieldType->id())) {
                 continue;
             }
 

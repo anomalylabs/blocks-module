@@ -3,7 +3,6 @@
 use Anomaly\BlocksModule\Block\BlockExtension;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldTypePresenter;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
-use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
 
 /**
  * Interface BlockInterface
@@ -21,13 +20,6 @@ interface BlockInterface extends EntryInterface
      * @return string
      */
     public function render();
-
-    /**
-     * Get the area field.
-     *
-     * @return FieldInterface
-     */
-    public function getAreaField();
 
     /**
      * Get the extension.
