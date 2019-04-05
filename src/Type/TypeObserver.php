@@ -7,6 +7,7 @@ use Anomaly\BlocksModule\Type\Command\UpdateStream;
 use Anomaly\BlocksModule\Type\Contract\TypeInterface;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Entry\EntryObserver;
+use Anomaly\Streams\Platform\Http\Command\ClearHttpCache;
 
 /**
  * Class TypeObserver
@@ -25,7 +26,7 @@ class TypeObserver extends EntryObserver
      */
     public function created(EntryInterface $entry)
     {
-        $this->commands->dispatch(new CreateStream($entry));
+        dispatch_now(new CreateStream($entry));
 
         parent::created($entry);
     }
@@ -37,10 +38,22 @@ class TypeObserver extends EntryObserver
      */
     public function updating(EntryInterface $entry)
     {
-        $this->commands->dispatch(new UpdateStream($entry));
-        $this->commands->dispatch(new UpdateBlocks($entry));
+        dispatch_now(new UpdateStream($entry));
+        dispatch_now(new UpdateBlocks($entry));
 
         parent::updating($entry);
+    }
+
+    /**
+     * Fired after a block type is updated.
+     *
+     * @param EntryInterface|TypeInterface $entry
+     */
+    public function updated(EntryInterface $entry)
+    {
+        dispatch_now(new ClearHttpCache($entry));
+
+        parent::updated($entry);
     }
 
     /**
@@ -50,7 +63,7 @@ class TypeObserver extends EntryObserver
      */
     public function deleted(EntryInterface $entry)
     {
-        $this->commands->dispatch(new DeleteStream($entry));
+        dispatch_now(new DeleteStream($entry));
 
         parent::deleted($entry);
     }
