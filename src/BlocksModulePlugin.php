@@ -31,7 +31,7 @@ class BlocksModulePlugin extends Plugin
                         return null;
                     }
 
-                    return view('anomaly.module.blocks::areas/blocks', compact('area'));
+                    return $area->getBlocks();
                 }, ['is_safe' => ['html']]
             ),
         ];
