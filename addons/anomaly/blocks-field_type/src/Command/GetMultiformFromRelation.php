@@ -87,6 +87,10 @@ class GetMultiformFromRelation
                     ->setScope($entry->getId());
             }
 
+            if ($form->hasChildForm('entry')) {
+                $form->setChildFormEntry('entry', $entry->getEntry());
+            }
+
             $form
                 ->setReadOnly($this->fieldType->isReadOnly())
                 ->setOption('block_id', $entry->getId())
