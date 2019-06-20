@@ -337,7 +337,8 @@ class BlocksFieldType extends FieldType
     /**
      * Fired just before version comparison.
      *
-     * @param EntryInterface|EloquentModel $entry
+     * @param BlockCollection $related
+     * @return array
      */
     public function toArrayForComparison(BlockCollection $related)
     {
