@@ -41,12 +41,13 @@ class GetMultiformFromRelation
      *
      * @param FieldRepositoryInterface $fields
      * @param MultipleFormBuilder $forms
+     * @param Decorator $decorator
      * @return MultipleFormBuilder|null
      */
-    public function handle(FieldRepositoryInterface $fields, MultipleFormBuilder $forms)
+    public function handle(FieldRepositoryInterface $fields, MultipleFormBuilder $forms, Decorator $decorator)
     {
         /* @var EntryCollection $value */
-        if (!$value = $this->fieldType->getValue()) {
+        if (!$value = $decorator->undecorate($this->fieldType->getValue())) {
             return null;
         }
 
