@@ -3,6 +3,7 @@
 use Anomaly\BlocksFieldType\Command\GetMultiformFromPost;
 use Anomaly\BlocksFieldType\Command\GetMultiformFromValue;
 use Anomaly\BlocksFieldType\Validation\ValidateBlocks;
+use Anomaly\BlocksModule\Block\BlockCollection;
 use Anomaly\BlocksModule\Block\BlockExtension;
 use Anomaly\BlocksModule\Block\BlockModel;
 use Anomaly\BlocksModule\Block\Contract\BlockRepositoryInterface;
@@ -11,6 +12,7 @@ use Anomaly\BlocksModule\Block\Form\BlockInstanceFormBuilder;
 use Anomaly\Streams\Platform\Addon\FieldType\FieldType;
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
+use Anomaly\Streams\Platform\Model\EloquentModel;
 use Anomaly\Streams\Platform\Ui\Form\FormBuilder;
 use Anomaly\Streams\Platform\Ui\Form\Multiple\MultipleFormBuilder;
 use Illuminate\Contracts\Container\Container;
@@ -185,7 +187,7 @@ class BlocksFieldType extends FieldType
      *
      * @param FieldInterface $field
      * @param BlockExtension $extension
-     * @param null           $instance
+     * @param null $instance
      * @return MultipleFormBuilder
      */
     public function form(FieldInterface $field, BlockExtension $extension, $instance = null)
@@ -262,7 +264,7 @@ class BlocksFieldType extends FieldType
     /**
      * Handle saving the form data ourselves.
      *
-     * @param FormBuilder              $builder
+     * @param FormBuilder $builder
      * @param BlockRepositoryInterface $blocks
      */
     public function handle(FormBuilder $builder, BlockRepositoryInterface $blocks)
@@ -318,5 +320,57 @@ class BlocksFieldType extends FieldType
                 }
             )->values()->all()
         );
+    }
+
+    /**
+     * Fired just before version comparison.
+     *
+     * @param EntryInterface|EloquentModel $entry
+     */
+    public function onVersioning(EntryInterface $entry)
+    {
+        $entry
+            ->unsetRelation(camel_case($this->getField()))
+            ->load(camel_case($this->getField()));
+    }
+
+    /**
+     * Fired just before version comparison.
+     *
+     * @param EntryInterface|EloquentModel $entry
+     */
+    public function toArrayForComparison(BlockCollection $related)
+    {
+        return $related->map(
+            function (BlockModel $model) {
+
+                $array = array_diff_key(
+                    $model->toArrayWithRelations(),
+                    array_flip(
+                        [
+                            'id',
+                            'sort_order',
+                            'created_at',
+                            'created_by_id',
+                            'updated_at',
+                            'updated_by_id',
+                            'deleted_at',
+                            'deleted_by_id',
+
+                            'field',
+                            'pivot',
+                            'area',
+                        ]
+                    ));
+
+                array_pull($array, 'entry.sort_order');
+                array_pull($array, 'entry.created_at');
+                array_pull($array, 'entry.created_by_id');
+                array_pull($array, 'entry.updated_at');
+                array_pull($array, 'entry.updated_by_id');
+
+                return $array;
+            }
+        )->toArray();
     }
 }
