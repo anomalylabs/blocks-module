@@ -24,4 +24,14 @@ class BlockInstanceFormBuilder extends MultipleFormBuilder
             ],
         ],
     ];
+
+    /**
+     * Return the contextual ID.
+     *
+     * @return int|null
+     */
+    public function getContextualId()
+    {
+        return $this->getChildFormEntryId('block');
+    }
 }
