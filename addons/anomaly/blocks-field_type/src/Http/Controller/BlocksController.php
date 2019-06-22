@@ -1,7 +1,6 @@
 <?php namespace Anomaly\BlocksFieldType\Http\Controller;
 
 use Anomaly\BlocksFieldType\BlocksFieldType;
-use Anomaly\BlocksModule\Block\BlockCategories;
 use Anomaly\BlocksModule\Block\BlockExtension;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
 use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
@@ -22,75 +21,10 @@ class BlocksController extends PublicController
      * Choose what kind of row to add.
      *
      * @param FieldRepositoryInterface $fields
-     * @param ExtensionCollection      $extensions
-     * @param BlockCategories          $categories
      * @param                          $field
      * @return \Illuminate\Contracts\View\View|mixed
      */
-    public function category(
-        FieldRepositoryInterface $fields,
-        ExtensionCollection $extensions,
-        BlockCategories $categories,
-        $field
-    ) {
-        /* @var FieldInterface $field */
-        $field = $fields->find($field);
-
-        /* @var BlocksFieldType $type */
-        $type = $field->getType();
-
-        /* @var ExtensionCollection $extensions */
-        $extensions = $extensions->search('anomaly.module.blocks::block.*')
-            ->enabled()
-            ->sort();
-
-        $categories = $categories->getCategories();
-
-        $allowed = $type->config('blocks', []);
-
-        if (!$allowed) {
-            $allowed = array_map(
-                function (BlockExtension $extension) {
-                    return $extension->getNamespace();
-                },
-                $extensions->all()
-            );
-        }
-
-        $extensions = $extensions->filter(
-            function ($extension) use ($allowed) {
-
-                /* @var BlockExtension $extension */
-                return in_array($extension->getNamespace(), $allowed);
-            }
-        );
-
-        foreach ($categories as $slug => &$category) {
-            $category['count'] = $extensions->filter(
-                function ($extension) use ($slug) {
-
-                    /* @var BlockExtension $extension */
-                    return $extension->getCategory() == $slug;
-                }
-            )->count();
-        }
-
-        return $this->view->make(
-            'anomaly.field_type.blocks::category',
-            [
-                'categories' => $categories,
-            ]
-        );
-    }
-
-    /**
-     * Choose what kind of row to add.
-     *
-     * @param FieldRepositoryInterface $fields
-     * @param                          $field
-     * @return \Illuminate\Contracts\View\View|mixed
-     */
-    public function choose(FieldRepositoryInterface $fields, ExtensionCollection $extensions, $field, $category)
+    public function choose(FieldRepositoryInterface $fields, ExtensionCollection $extensions, $field)
     {
         /* @var FieldInterface $field */
         $field = $fields->find($field);
@@ -122,16 +56,6 @@ class BlocksController extends PublicController
             }
         );
 
-        if ($category !== 'all') {
-            $extensions = $extensions->filter(
-                function ($extension) use ($category) {
-
-                    /* @var BlockExtension $extension */
-                    return $extension->getCategory() == $category;
-                }
-            );
-        }
-
         return $this->view->make(
             'anomaly.field_type.blocks::choose',
             [
@@ -144,9 +68,9 @@ class BlocksController extends PublicController
      * Return a form row.
      *
      * @param FieldRepositoryInterface $fields
-     * @param ExtensionCollection      $extensions
-     * @param                          $field
-     * @param                          $extension
+     * @param ExtensionCollection $extensions
+     * @param $field
+     * @param $extension
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function form(

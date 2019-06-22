@@ -2,7 +2,6 @@
 
 use Anomaly\BlocksModule\Area\Command\GetArea;
 use Anomaly\BlocksModule\Area\Contract\AreaInterface;
-use Anomaly\BlocksModule\Block\BlockCategories;
 use Anomaly\BlocksModule\Block\BlockExtension;
 use Anomaly\BlocksModule\Block\Contract\BlockInterface;
 use Anomaly\BlocksModule\Block\Contract\BlockRepositoryInterface;
@@ -10,7 +9,6 @@ use Anomaly\BlocksModule\Block\Form\BlockFormBuilder;
 use Anomaly\BlocksModule\Block\Form\BlockInstanceFormBuilder;
 use Anomaly\BlocksModule\Block\Table\BlockTableBuilder;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
-use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
@@ -49,8 +47,8 @@ class BlocksController extends AdminController
      * Create a new entry.
      *
      * @param BlockInstanceFormBuilder|BlockFormBuilder $form
-     * @param BlockFormBuilder                          $default
-     * @param ExtensionCollection                       $extensions
+     * @param BlockFormBuilder $default
+     * @param ExtensionCollection $extensions
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function create(
@@ -105,59 +103,14 @@ class BlocksController extends AdminController
      * @param BlockRepositoryInterface $blocks
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function category(ExtensionCollection $extensions, BlockCategories $categories)
-    {
-        $categories = $categories->getCategories();
-
-        /* @var ExtensionCollection $extensions */
-        $extensions = $extensions
-            ->search('anomaly.module.blocks::block.*')
-            ->enabled()
-            ->sort();
-
-        foreach ($categories as $slug => &$category) {
-            $category['count'] = $extensions->filter(
-                function ($extension) use ($slug) {
-
-                    /* @var BlockExtension $extension */
-                    return $extension->getCategory() == $slug;
-                }
-            )->count();
-        }
-
-        return $this->view->make(
-            'anomaly.module.blocks::admin/categories/choose',
-            [
-                'categories' => $categories,
-            ]
-        );
-    }
-
-    /**
-     * Return a list of blocks to view.
-     *
-     * @param BlockRepositoryInterface $blocks
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function choose(ExtensionCollection $extensions)
     {
-        $category = $this->request->get('category', 'all');
 
         /* @var ExtensionCollection $extensions */
         $extensions = $extensions
             ->search('anomaly.module.blocks::block.*')
             ->enabled()
             ->sort();
-
-        if ($category !== 'all') {
-            $extensions = $extensions->filter(
-                function ($extension) use ($category) {
-
-                    /* @var BlockExtension $extension */
-                    return $extension->getCategory() == $category;
-                }
-            );
-        }
 
         return $this->view->make(
             'anomaly.module.blocks::admin/blocks/choose',
@@ -170,10 +123,11 @@ class BlocksController extends AdminController
     /**
      * Edit an existing entry.
      *
-     * @param BlockInstanceFormBuilder|BlockFormBuilder $form
-     * @param BlockRepositoryInterface                  $blocks
-     * @param                                           $area
-     * @param                                           $id
+     * @param BlockInstanceFormBuilder $form
+     * @param BlockFormBuilder $block
+     * @param BlockRepositoryInterface $blocks
+     * @param $area
+     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function edit(
