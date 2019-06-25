@@ -51,7 +51,7 @@ class BlocksModule extends Module
                 'add_block' => [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/blocks/areas/{request.route.parameters.area}/category',
+                    'href'        => 'admin/blocks/areas/{request.route.parameters.area}/choose',
                 ],
             ],
         ],
