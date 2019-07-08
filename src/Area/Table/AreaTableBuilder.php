@@ -20,7 +20,7 @@ class AreaTableBuilder extends TableBuilder
     protected $filters = [
         'search' => [
             'fields' => [
-                'title',
+                'name',
                 'slug',
                 'description',
             ],
