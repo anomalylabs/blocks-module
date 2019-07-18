@@ -3,11 +3,9 @@
     "type": "streams-addon",
     "description": "Manage sections of content.",
     "keywords": [
-        "streams module",
-        "streams addon",
-        "module"
+        "block content"
     ],
-    "homepage": "http://pyrocms.com/",
+    "homepage": "http://pyrocms.com/addons/anomaly/blocks-module",
     "license": "MIT",
     "assets": {
         "icon": "",
