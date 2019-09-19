@@ -1,6 +1,6 @@
 <?php namespace Anomaly\BlocksModule\Area;
 
-use Anomaly\BlocksModule\Area\Contract\AreaRepositoryInterface;
+use Anomaly\BlocksModule\Area\AreaRepository;
 use Anomaly\Streams\Platform\Database\Seeder\Seeder;
 
 /**
@@ -16,14 +16,14 @@ class AreaSeeder extends Seeder
     /**
      * The area repository.
      *
-     * @var AreaRepositoryInterface
+     * @var AreaRepository
      */
     protected $areas;
 
     /**
      * Create a new AreaSeeder instance.
      */
-    public function __construct(AreaRepositoryInterface $areas)
+    public function __construct(AreaRepository $areas)
     {
         $this->areas = $areas;
 
