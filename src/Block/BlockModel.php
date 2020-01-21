@@ -1,4 +1,6 @@
-<?php namespace Anomaly\BlocksModule\Block;
+<?php
+
+namespace Anomaly\BlocksModule\Block;
 
 use Anomaly\BlocksModule\Block\Command\MakeBlock;
 use Anomaly\BlocksModule\Block\Command\RenderBlock;
@@ -25,6 +27,15 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
      * @var array
      */
     protected $with = [
+        'entry',
+    ];
+
+    /**
+     * Cascade these relations.
+     *
+     * @var array
+     */
+    protected $cascades = [
         'entry',
     ];
 
@@ -279,5 +290,4 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
 
         return $this;
     }
-
 }

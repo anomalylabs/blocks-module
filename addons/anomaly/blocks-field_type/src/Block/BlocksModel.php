@@ -38,15 +38,6 @@ class BlocksModel extends Model implements PresentableInterface
     ];
 
     /**
-     * Cascade these relations.
-     *
-     * @var array
-     */
-    protected $cascades = [
-        'entry',
-    ];
-
-    /**
      * Return the related entry.
      *
      * @return EntryInterface
