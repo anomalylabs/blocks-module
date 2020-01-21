@@ -1,4 +1,6 @@
-<?php namespace Anomaly\BlocksFieldType\Block;
+<?php
+
+namespace Anomaly\BlocksFieldType\Block;
 
 use Anomaly\Streams\Platform\Entry\Contract\EntryInterface;
 use Illuminate\Database\Eloquent\Model;
@@ -33,6 +35,15 @@ class BlocksModel extends Model implements PresentableInterface
         'related_id',
         'block_type',
         'sort_order',
+    ];
+
+    /**
+     * Cascade these relations.
+     *
+     * @var array
+     */
+    protected $cascades = [
+        'entry',
     ];
 
     /**
@@ -82,7 +93,12 @@ class BlocksModel extends Model implements PresentableInterface
          */
         if (!class_exists($this->entry_type)) {
             return new MorphTo(
-                $this->newQuery(), $this, -1, null, $type, $name
+                $this->newQuery(),
+                $this,
+                -1,
+                null,
+                $type,
+                $name
             );
         }
 
