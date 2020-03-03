@@ -60,15 +60,16 @@ class BlockCollection extends EntryCollection
     /**
      * Render the blocks.
      *
+     * @param array $payload
      * @return string
      */
-    public function render()
+    public function render(array $payload = [])
     {
         return implode(
             "\n\n",
             $this->undecorate()->map(
-                function (BlockInterface $block) {
-                    return $block->render();
+                function (BlockInterface $block) use ($payload) {
+                    return $block->render($payload);
                 }
             )->all()
         );

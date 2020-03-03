@@ -23,15 +23,24 @@ class MakeBlock
      * @var BlockInterface
      */
     protected $block;
+    
+    /**
+     * The block payload.
+     *
+     * @var array
+     */
+    protected $payload;
 
     /**
      * Create a new MakeBlock instance.
      *
      * @param BlockInterface $block
+     * @param array $payload
      */
-    public function __construct(BlockInterface $block)
+    public function __construct(BlockInterface $block, array $payload = [])
     {
-        $this->block = $block;
+        $this->block   = $block;
+        $this->payload = $payload;
     }
 
     /**
@@ -54,12 +63,12 @@ class MakeBlock
         if (!$extension->getView()) {
             return;
         }
-
+        
         $this->block->setContent(
             $view
                 ->make(
                     $extension->getView(),
-                    ['block' => $this->block]
+                    array_merge(['block' => $this->block], $this->payload)
                 )
                 ->render()
         );
