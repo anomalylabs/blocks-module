@@ -30,7 +30,9 @@ class BlockPresenter extends EntryPresenter
      */
     public function __get($key)
     {
-        if (in_array($key, ['id']) || $this->object->hasField($key)) {
+        $meta = ['id', 'sort_order', 'created_at', 'created_by', 'updated_at', 'updated_by'];
+        
+        if (in_array($key, $meta) || $this->object->hasField($key)) {
             return parent::__get($key);
         }
 
