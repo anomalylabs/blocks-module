@@ -5,6 +5,7 @@ use Anomaly\BlocksModule\Block\BlockCollection;
 use Anomaly\BlocksModule\Block\BlockModel;
 use Anomaly\Streams\Platform\Model\Blocks\BlocksAreasEntryModel;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class AreaModel
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  */
 class AreaModel extends BlocksAreasEntryModel implements AreaInterface
 {
+    use HasFactory;
 
     /**
      * The cascading relations.
