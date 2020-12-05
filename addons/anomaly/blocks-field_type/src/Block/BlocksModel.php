@@ -73,9 +73,10 @@ class BlocksModel extends Model implements PresentableInterface
      * @param  string $name
      * @param  string $type
      * @param  string $id
+     * @param  string $ownerKey
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
-    public function morphTo($name = null, $type = null, $id = null)
+    public function morphTo($name = null, $type = null, $id = null, $ownerKey = null)
     {
         /**
          * Check that the blocks relation still
@@ -93,6 +94,6 @@ class BlocksModel extends Model implements PresentableInterface
             );
         }
 
-        return parent::morphTo($name, $type, $id);
+        return parent::morphTo($name, $type, $id, $ownerKey);
     }
 }
