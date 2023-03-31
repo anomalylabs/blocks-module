@@ -69,10 +69,10 @@ class BlockExtension extends Extension
      */
     public function extend(BlockInstanceFormBuilder $builder)
     {
-        $this->dispatch(new AddStreamForm($builder, $this));
-        $this->dispatch(new AddConfigurationForm($builder, $this));
+        $this->dispatchSync(new AddStreamForm($builder, $this));
+        $this->dispatchSync(new AddConfigurationForm($builder, $this));
 
-        $this->dispatch(new ExtendFormSections($builder, $this));
+        $this->dispatchSync(new ExtendFormSections($builder, $this));
     }
 
     /**

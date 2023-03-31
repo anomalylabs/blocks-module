@@ -48,11 +48,11 @@ class GetMultiformFromValue
         }
 
         if (is_array($value)) {
-            return $this->dispatch(new GetMultiformFromData($this->fieldType));
+            return $this->dispatchSync(new GetMultiformFromData($this->fieldType));
         }
 
         if ($value instanceof Collection) {
-            return $this->dispatch(new GetMultiformFromRelation($this->fieldType));
+            return $this->dispatchSync(new GetMultiformFromRelation($this->fieldType));
         }
 
         return null;

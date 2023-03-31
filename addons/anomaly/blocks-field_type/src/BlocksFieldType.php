@@ -148,7 +148,7 @@ class BlocksFieldType extends FieldType
      */
     public function getInputValue($default = null)
     {
-        return $this->dispatch(new GetMultiformFromPost($this));
+        return $this->dispatchSync(new GetMultiformFromPost($this));
     }
 
     /**
@@ -247,7 +247,7 @@ class BlocksFieldType extends FieldType
      */
     public function forms()
     {
-        if (!$forms = $this->dispatch(new GetMultiformFromValue($this))) {
+        if (!$forms = $this->dispatchSync(new GetMultiformFromValue($this))) {
             return [];
         }
 

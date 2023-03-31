@@ -31,7 +31,7 @@ class BlocksController extends AdminController
     {
 
         /* @var AreaInterface $area */
-        if (!$area = $this->dispatch(new GetArea($area))) {
+        if (!$area = $this->dispatchSync(new GetArea($area))) {
             abort(404);
         }
 
@@ -66,7 +66,7 @@ class BlocksController extends AdminController
         $block->setExtension($extension);
 
         /* @var AreaInterface $area */
-        if (!$area = $this->dispatch(new GetArea($area))) {
+        if (!$area = $this->dispatchSync(new GetArea($area))) {
             abort(404);
         }
 

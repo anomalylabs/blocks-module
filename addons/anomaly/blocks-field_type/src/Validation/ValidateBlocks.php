@@ -26,7 +26,7 @@ class ValidateBlocks
     public function handle(BlocksFieldType $fieldType)
     {
         /* @var MultipleFormBuilder $forms */
-        if (!$forms = $this->dispatch(new GetMultiformFromPost($fieldType))) {
+        if (!$forms = $this->dispatchSync(new GetMultiformFromPost($fieldType))) {
             return true;
         }
 

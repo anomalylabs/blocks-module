@@ -83,7 +83,7 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
     {
         $this->make($payload);
 
-        return $this->dispatch(new RenderBlock($this, $payload));
+        return $this->dispatchSync(new RenderBlock($this, $payload));
     }
 
     /**
@@ -94,7 +94,7 @@ class BlockModel extends BlocksBlocksEntryModel implements BlockInterface
      */
     public function make(array $payload = [])
     {
-        $this->dispatch(new MakeBlock($this, $payload));
+        $this->dispatchSync(new MakeBlock($this, $payload));
 
         return $this;
     }

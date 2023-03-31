@@ -27,7 +27,7 @@ class BlocksModulePlugin extends Plugin
                 function ($identifier) {
 
                     /* @var AreaInterface $area */
-                    if (!$area = $this->dispatch(new GetArea($identifier))) {
+                    if (!$area = $this->dispatchSync(new GetArea($identifier))) {
                         return null;
                     }
 

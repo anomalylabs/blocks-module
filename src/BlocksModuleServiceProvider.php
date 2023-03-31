@@ -87,7 +87,7 @@ class BlocksModuleServiceProvider extends AddonServiceProvider
     public function boot()
     {
         if (class_exists(BlocksTypesEntryModel::class)) {
-            $this->dispatch(new RegisterBlocks());
+            $this->dispatchSync(new RegisterBlocks());
         }
     }
 

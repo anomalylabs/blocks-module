@@ -42,7 +42,7 @@ class BackgroundImageFieldType extends FileFieldType
         $value = $default;
 
         /* @var FileInterface $file */
-        if ($file = $this->dispatch(new GetFile(parent::getValue()))) {
+        if ($file = $this->dispatchSync(new GetFile(parent::getValue()))) {
             $value = 'url(' . $file->make()->path() . ')';
         }
 
