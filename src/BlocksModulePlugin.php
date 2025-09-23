@@ -3,6 +3,7 @@
 use Anomaly\BlocksModule\Area\Command\GetArea;
 use Anomaly\BlocksModule\Area\Contract\AreaInterface;
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
+use Twig\TwigFunction;
 
 /**
  * Class BlocksModulePlugin
@@ -22,7 +23,7 @@ class BlocksModulePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction(
+            new TwigFunction(
                 'blocks',
                 function ($identifier) {
 
