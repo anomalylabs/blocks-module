@@ -5,7 +5,7 @@ use Anomaly\BlocksModule\Block\BlockExtension;
 use Anomaly\Streams\Platform\Addon\Extension\ExtensionCollection;
 use Anomaly\Streams\Platform\Field\Contract\FieldInterface;
 use Anomaly\Streams\Platform\Field\Contract\FieldRepositoryInterface;
-use Anomaly\Streams\Platform\Http\Controller\PublicController;
+use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
  * Class BlocksController
@@ -14,7 +14,7 @@ use Anomaly\Streams\Platform\Http\Controller\PublicController;
  * @author PyroCMS, Inc. <support@pyrocms.com>
  * @author Ryan Thompson <ryan@pyrocms.com>
  */
-class BlocksController extends PublicController
+class BlocksController extends AdminController
 {
 
     /**

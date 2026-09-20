@@ -19,7 +19,13 @@ class BlocksFieldTypeServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'streams/blocks-field_type/choose/{field}'           => 'Anomaly\BlocksFieldType\Http\Controller\BlocksController@choose',
-        'streams/blocks-field_type/form/{field}/{extension}' => 'Anomaly\BlocksFieldType\Http\Controller\BlocksController@form',
+        'streams/blocks-field_type/choose/{field}'           => [
+            'verb' => 'get',
+            'uses' => 'Anomaly\BlocksFieldType\Http\Controller\BlocksController@choose',
+        ],
+        'streams/blocks-field_type/form/{field}/{extension}' => [
+            'verb' => 'get',
+            'uses' => 'Anomaly\BlocksFieldType\Http\Controller\BlocksController@form',
+        ],
     ];
 }
